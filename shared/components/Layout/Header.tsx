@@ -9,6 +9,7 @@ import HeaderSlider from "@/shared/components/Layout/HeaderSlider";
 import {FaRegUser} from "react-icons/fa";
 import {MdFavoriteBorder} from "react-icons/md";
 import {LuShoppingBag} from "react-icons/lu";
+import HeaderMegaMenu from "@/shared/components/Layout/HeaderMegaMenu";
 
 
 function Header() {
@@ -48,8 +49,7 @@ function Header() {
                         </div>
                     </div>
                 </div>
-                <div
-                    className="flex items-center - md:justify-evenly xl:justify-between md:w-full md:mt-5 xl:mt-auto xl:w-[700px]  m-auto">
+                <div className="flex items-center  md:justify-evenly xl:justify-between md:w-full md:mt-5 xl:mt-auto xl:w-[700px]  m-auto">
                     <nav className="w-[420px] h-[20px] md:ml-0 xl:ml-10">
                         <ul className="flex items-center justify-between">
                             <li><Link
@@ -80,19 +80,20 @@ function Header() {
             </div>
             {/*Header item one*/}
 
+
+
+
+
+
             {/* Header Bottom */}
             <div className="hidden md:block w-full bg-gray-800">
-                <div className="container  mx-auto max-w-7xl flex items-center h-[78px] md:justify-center xl:justify-between ">
+                <div
+                    className="container  mx-auto max-w-7xl flex items-center h-[78px] md:justify-center xl:justify-between ">
 
                     {/* Section One */}
-                    <div className="xl:flex-1 tablet:w-[390px]  md:w-[400px] h-full text-white flex items-center justify-between xl:justify-start">
-                        <div className="flex items-center md:ml-6 xl:ml-0 xl:justify-start">
-                            <Image
-                                src="/image/header/icon/Vector.svg"
-                                alt="Categories"
-                                width={24}
-                                height={24}
-                            />
+                    <div className="xl:flex-1 tablet:w-[390px]   md:w-[400px] h-full text-white flex items-center justify-between xl:justify-start">
+                        <div className="flex items-center tablet:ml-10 md:ml-10 md:mr-2 xl:ml-0 xl:justify-start">
+                            <Image src="/image/header/icon/Vector.svg" alt="Categories" width={24} height={24}/>
                             <span className="font-bold tablet:text-sm md:text-sm lg:text-xl ml-2"> Categories</span>
                         </div>
                         <div className="flex items-center ml-10">
@@ -100,7 +101,7 @@ function Header() {
                                 <select
                                     defaultValue="USD"
                                     aria-label="Currency"
-                                    className="w-[60px] h-[40px] cursor-pointer rounded bg-gray-800   text-sm text-white outline-none"
+                                    className="lg:w-[60px] h-[40px] cursor-pointer rounded bg-gray-800   text-sm text-white outline-none"
                                 >
                                     <option value="USD">USD</option>
                                     <option value="EUR">EUR</option>
@@ -131,7 +132,7 @@ function Header() {
                     <BorderItems/>
 
                     {/* Section Three */}
-                    <div className="xl:flex-1 relative z-10 tablet:ml-16 md:ml-16  xl:mr-0 h-full text-white flex items-center justify-end">
+                    <div className="xl:flex-1 relative  w-[340px] z-10 tablet:ml-16 md:ml-16  xl:mr-0 h-full text-white flex items-center justify-end">
                         <Link href="/ssss" className="flex items-center md:mr-8 xl:mr-10">
                             <FaRegUser/>
                             <span className="md:text-[12px] xl:text-sm text-gray-300 ml-2">Sign in</span>
@@ -141,10 +142,11 @@ function Header() {
 
                             <span className="text-sm text-gray-300 ml-2">Favorites</span>
                         </Link>
-                        <div className="flex items-center cursor-pointer mr-8">
+                        <div className="flex items-center cursor-pointer ">
                             <LuShoppingBag/>
                             <span className="text-sm text-gray-300 ml-2">Card</span>
-                            <span className="w-[24px] text-[14px] flex items-center justify-center h-[23px] bg-green-400 m-auto text-center ml-2 rounded-full">3</span>
+                            <span
+                                className="w-[24px] text-[14px] flex items-center justify-center h-[23px] bg-green-400 m-auto text-center ml-2 rounded-full">3</span>
                         </div>
                     </div>
                     {/* Section Three */}
@@ -152,6 +154,11 @@ function Header() {
                 </div>
             </div>
             {/* Header Bottom */}
+
+            {/* Header End */}
+            <HeaderMegaMenu/>
+            {/* Header End */}
+
         </header>
     );
 }

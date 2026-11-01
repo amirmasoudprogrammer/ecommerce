@@ -1,4 +1,3 @@
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
@@ -8,17 +7,24 @@ module.exports = {
     ],
 
     theme: {
-        screens: {
-            sm: "640px",
-            tablet: "744px",
-            md: "768px",
-            Laptops:"1205px",
-            lg: "1024px",
-            xl: "1280px",
-            "2xl": "1440px",
+        // Container Configuration
+        container: {
+            center: true,
+            padding: {
+                DEFAULT: "1rem",
+                sm: "1.5rem",
+                lg: "2rem",
+            },
         },
 
+        // Custom Breakpoints & Colors
         extend: {
+            screens: {
+                tablet: "744px",
+                laptop: "1205px",
+                "2xl": "1440px",
+            },
+
             colors: {
                 secondary: "#64748b",
             },
