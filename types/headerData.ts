@@ -13,3 +13,13 @@ export interface HeaderMenu {
         subTitle: string[];
     }[];
 }
+
+export interface MoreMenuTitle {
+    id: number;
+    title: string;
+    subTitle: string[];
+}
+export interface headerMobile {
+    title:string
+    href:string
+}

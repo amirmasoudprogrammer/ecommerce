@@ -1,4 +1,4 @@
-import {HeaderItem, HeaderMenu} from "@/types/headerData";
+import {HeaderItem, HeaderMenu, headerMobile} from "@/types/headerData";
 
 export const headerData: HeaderItem[] = [
     {
@@ -44,7 +44,6 @@ export const headerMenu: HeaderMenu[] = [
                     "Pillows",
                     "Handkerchief",
                     "Towels",
-                    "Curtain",
                 ],
             },
             {
@@ -120,14 +119,8 @@ export const headerMenu: HeaderMenu[] = [
                     "Jeans",
                     "Trousers",
                     "Shorts",
-                    "Jackets",
-                    "Hoodies & Sweatshirts",
-                    "Suits & Blazers",
-                    "Formal Wear",
-                    "Casual Wear",
-                    "Underwear",
-                    "Socks",
-                    "Sleepwear",
+
+
                 ],
             },
             {
@@ -140,10 +133,8 @@ export const headerMenu: HeaderMenu[] = [
                     "Boots",
                     "Sandals",
                     "Slippers",
-                    "Sports Shoes",
-                    "Backpacks",
-                    "Travel Bags",
-                    "Wallets",
+
+
                 ],
             },
             {
@@ -156,8 +147,7 @@ export const headerMenu: HeaderMenu[] = [
                     "Scarves",
                     "Ties",
                     "Cufflinks",
-                    "Keychains",
-                    "Gloves",
+
                 ],
             },
             {
@@ -178,8 +168,6 @@ export const headerMenu: HeaderMenu[] = [
                 subTitle: [
                     "Shaving Products",
                     "Beard Care",
-                    "Hair Styling Products",
-                    "Shampoo & Conditioner",
                     "Body Wash",
                     "Deodorants",
                     "Skincare",
@@ -194,8 +182,7 @@ export const headerMenu: HeaderMenu[] = [
                     "Sports Shorts",
                     "Tracksuits",
                     "Sports Shoes",
-                    "Fitness Equipment",
-                    "Outdoor Clothing",
+
                 ],
             },
             {
@@ -221,7 +208,7 @@ export const headerMenu: HeaderMenu[] = [
         title: "Mother & Kids",
     },
     {
-        id:5,
+        id: 5,
         title: "Home & Furniture",
     },
     {
@@ -242,12 +229,7 @@ export const headerMenu: HeaderMenu[] = [
                 subTitle: [
                     "Mobile Phones",
                     "Smartphones",
-                    "Phone Cases",
-                    "Screen Protectors",
                     "Chargers",
-                    "Power Banks",
-                    "Headphones",
-                    "Earbuds",
                     "Phone Holders",
                 ],
             },
@@ -260,24 +242,16 @@ export const headerMenu: HeaderMenu[] = [
                     "All-in-One PCs",
                     "Monitors",
                     "Keyboards",
-                    "Mice",
-                    "Webcams",
-                    "Laptop Accessories",
-                    "Computer Components",
-                    "Graphics Cards",
-                    "RAM & Storage",
+
                 ],
             },
             {
                 id: 3,
-                title: "TV & Home Entertainment",
+                title: "TV & Home ",
                 subTitle: [
                     "LED TVs",
                     "Smart TVs",
                     "OLED TVs",
-                    "Projectors",
-                    "Soundbars",
-                    "Home Theater Systems",
                     "TV Mounts",
                     "Streaming Devices",
                 ],
@@ -290,10 +264,7 @@ export const headerMenu: HeaderMenu[] = [
                     "Bluetooth Earbuds",
                     "Wired Headphones",
                     "Bluetooth Speakers",
-                    "Portable Speakers",
-                    "Microphones",
-                    "Home Audio Systems",
-                    "Sound Equipment",
+
                 ],
             },
             {
@@ -305,31 +276,22 @@ export const headerMenu: HeaderMenu[] = [
                     "Xbox",
                     "Nintendo Switch",
                     "Gaming Controllers",
-                    "Gaming Headsets",
-                    "Gaming Keyboards",
-                    "Gaming Mice",
-                    "Gaming Chairs",
-                    "Video Games",
                 ],
             },
             {
                 id: 6,
-                title: "Cameras & Photography",
+                title: "Cameras ",
                 subTitle: [
                     "Digital Cameras",
                     "DSLR Cameras",
                     "Mirrorless Cameras",
                     "Action Cameras",
-                    "Security Cameras",
-                    "Camera Lenses",
-                    "Tripods",
-                    "Camera Accessories",
-                    "Drones",
+
                 ],
             },
             {
                 id: 7,
-                title: "Smart Watches & Wearables",
+                title: "Smart Watches",
                 subTitle: [
                     "Smart Watches",
                     "Fitness Trackers",
@@ -339,56 +301,30 @@ export const headerMenu: HeaderMenu[] = [
                     "Wearable Accessories",
                 ],
             },
-            {
-                id: 8,
-                title: "Home Appliances",
-                subTitle: [
-                    "Refrigerators",
-                    "Washing Machines",
-                    "Dishwashers",
-                    "Microwaves",
-                    "Vacuum Cleaners",
-                    "Air Conditioners",
-                    "Electric Kettles",
-                    "Coffee Machines",
-                    "Blenders",
-                    "Air Fryers",
-                ],
-            },
-            {
-                id: 9,
-                title: "Electronic Accessories",
-                subTitle: [
-                    "USB Cables",
-                    "HDMI Cables",
-                    "Adapters",
-                    "Power Strips",
-                    "Memory Cards",
-                    "USB Flash Drives",
-                    "External Hard Drives",
-                    "Power Banks",
-                    "Batteries",
-                    "Surge Protectors",
-                ],
-            },
-            {
-                id: 10,
-                title: "Smart Home",
-                subTitle: [
-                    "Smart Lighting",
-                    "Smart Plugs",
-                    "Smart Sensors",
-                    "Smart Doorbells",
-                    "Smart Locks",
-                    "Home Security Systems",
-                    "Smart Thermostats",
-                    "Voice Assistants",
-                ],
-            },
+
+
         ],
     },
     {
         id: 9,
         title: "Sports & Outdoors",
     },
+];
+
+
+export const menuItems: headerMobile[] = [
+    {title: "Home", href: "/"},
+    {title: "Woman", href: "/"},
+    {title: "Male", href: "/"},
+    {title: "Mother & Child", href: "/"},
+    {title: "Home & Furniture", href: "/"},
+    {title: "Sports & Outdoors", href: "/"},
+    {title: "Cosmetics", href: "/"},
+    {title: "Supermarket", href: "/"},
+    {title: "Shoes & Bags", href: "/"},
+    {title: "Electronics", href: "/"},
+    {title: "Blog", href: "/"},
+    {title: "Contact Us", href: "/"},
+    {title: "About us", href: "/"},
+    {title: "Help & Support", href: "/"},
 ];

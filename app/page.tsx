@@ -1,8 +1,7 @@
-
 export default function Home() {
-  return (
-      <div className="">
-
-      </div>
-  );
+    return (
+        <div className=" w-full min-h-[500px] my-10 bg-amber-500">
+            amirmasoud
+        </div>
+    );
 }

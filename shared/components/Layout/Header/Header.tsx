@@ -4,21 +4,22 @@ import {FiChevronDown, FiSearch} from "react-icons/fi";
 import {FiInstagram} from "react-icons/fi";
 import {BiLogoFacebook} from "react-icons/bi";
 import {FaTelegramPlane} from "react-icons/fa";
-import BorderItems from "@/shared/components/Layout/BorderItems";
-import HeaderSlider from "@/shared/components/Layout/HeaderSlider";
+import BorderItems from "@/shared/components/Layout/Header/BorderItems";
+import HeaderSlider from "@/shared/components/Layout/Header/HeaderSlider";
 import {FaRegUser} from "react-icons/fa";
 import {MdFavoriteBorder} from "react-icons/md";
 import {LuShoppingBag} from "react-icons/lu";
-import HeaderMegaMenu from "@/shared/components/Layout/HeaderMegaMenu";
+import HeaderMegaMenu from "@/shared/components/Layout/Header/HeaderMegaMenu";
+import HeaderMobile from "@/shared/components/Layout/Header/HeaderMobile";
 
 
 function Header() {
     return (
-        <header className=" h-24 w-full">
+        <header className="relative w-full flex flex-col">
             {/*Header item one*/}
-            <div className="container mx-auto hidden tablet:mt-2 md:mt-2 xl:mt-auto  max-w-7xl tablet:grid tablet:items-center tablet  md:grid xl:flex h-full items-center xl:justify-between">
+            <div className="container w-full h-[102px]  mx-auto hidden tablet:mt-2 md:mt-2 xl:mt-auto  max-w-7xl tablet:grid tablet:items-center md:grid xl:flex h-full items-center xl:justify-between">
                 <div className="flex items-center tablet:justify-evenly md:justify-evenly xl:justify-center ">
-                    <Link className="md:mr-10 xl:mr-auto" href="/">
+                    <Link className="md:mr-10 xl:mr-auto" href="/PROGRMMING/typeScript/ecommerce/public">
                         <Image
                             src="/image/header/logo/Logo.svg"
                             alt="logo"
@@ -54,25 +55,25 @@ function Header() {
                         <ul className="flex items-center justify-between">
                             <li><Link
                                 className="md:text-md xl:text-sm text-secondary hover:text-gray-700 hover:font-medium"
-                                href="/">About us</Link></li>
+                                href="/PROGRMMING/typeScript/ecommerce/public">About us</Link></li>
                             <li><Link
                                 className="md:text-md xl:text-sm text-secondary hover:text-gray-700 hover:font-medium"
-                                href="/">Blog</Link></li>
+                                href="/PROGRMMING/typeScript/ecommerce/public">Blog</Link></li>
                             <li><Link
                                 className="md:text-md xl:text-sm text-secondary hover:text-gray-700 hover:font-medium"
-                                href="/">Contact us</Link></li>
+                                href="/PROGRMMING/typeScript/ecommerce/public">Contact us</Link></li>
                             <li><Link
                                 className="md:text-md xl:text-sm text-secondary hover:text-gray-700 hover:font-medium"
-                                href="/">Help & support</Link></li>
+                                href="/PROGRMMING/typeScript/ecommerce/public">Help & support</Link></li>
                         </ul>
                     </nav>
-                    <div className="flex text-gray-400 items-center justify-end  w-[127.5px] h-[24px]">
-                        <Link href="/"
+                    <div className="flex text-gray-400 items-center justify-end w-[127.5px] h-[24px]">
+                        <Link href="/PROGRMMING/typeScript/ecommerce/public"
                               className="md:text-2xl xl:text-lg font-bold mr-2 hover:font-medium hover:text-gray-700">
                             <FiInstagram/></Link>
-                        <Link href="/"
+                        <Link href="/PROGRMMING/typeScript/ecommerce/public"
                               className="md:text-2xl xl:text-lg font-bold mr-2 hover:font-medium hover:text-gray-700"><BiLogoFacebook/></Link>
-                        <Link href="/"
+                        <Link href="/PROGRMMING/typeScript/ecommerce/public"
                               className="md:text-2xl xl:text-lg font-bold hover:font-medium hover:text-gray-700"><FaTelegramPlane/></Link>
 
                     </div>
@@ -81,14 +82,9 @@ function Header() {
             {/*Header item one*/}
 
 
-
-
-
-
             {/* Header Bottom */}
             <div className="hidden md:block w-full bg-gray-800">
-                <div
-                    className="container  mx-auto max-w-7xl flex items-center h-[78px] md:justify-center xl:justify-between ">
+                <div className="container  mx-auto max-w-7xl flex items-center h-[78px] md:justify-center xl:justify-between ">
 
                     {/* Section One */}
                     <div className="xl:flex-1 tablet:w-[390px]   md:w-[400px] h-full text-white flex items-center justify-between xl:justify-start">
@@ -144,7 +140,7 @@ function Header() {
                         </Link>
                         <div className="flex items-center cursor-pointer ">
                             <LuShoppingBag/>
-                            <span className="text-sm text-gray-300 ml-2">Card</span>
+                            <span className=" text-sm text-gray-300 ml-2">Card</span>
                             <span
                                 className="w-[24px] text-[14px] flex items-center justify-center h-[23px] bg-green-400 m-auto text-center ml-2 rounded-full">3</span>
                         </div>
@@ -155,9 +151,18 @@ function Header() {
             </div>
             {/* Header Bottom */}
 
+
             {/* Header End */}
             <HeaderMegaMenu/>
             {/* Header End */}
+
+
+            {/* Header Mobile */}
+
+            <HeaderMobile/>
+
+            {/* Header Mobile */}
+
 
         </header>
     );
