@@ -17,9 +17,9 @@ export default function RootLayout({children,}: { children: ReactNode; }) {
         <body className="flex min-h-screen flex-col bg-white">
 
         {/* Header */}
-        <header className="relative z-50 w-full shrink-0">
+        <div className="relative z-50 w-full shrink-0">
             <Header />
-        </header>
+        </div>
 
         {/* Main */}
         <main className="w-full flex-1">
@@ -27,9 +27,9 @@ export default function RootLayout({children,}: { children: ReactNode; }) {
         </main>
 
         {/* Footer */}
-        <footer className="relative z-10 w-full shrink-0">
+        <div className="relative z-10 w-full shrink-0">
             <Footer />
-        </footer>
+        </div>
 
         </body>
         </html>

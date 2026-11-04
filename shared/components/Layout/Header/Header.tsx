@@ -17,7 +17,7 @@ function Header() {
     return (
         <header className="relative w-full flex flex-col">
             {/*Header item one*/}
-            <div className="container w-full h-[102px]  mx-auto hidden tablet:mt-2 md:mt-2 xl:mt-auto  max-w-7xl tablet:grid tablet:items-center md:grid xl:flex h-full items-center xl:justify-between">
+            <div className="container w-full h-[100px]  mx-auto hidden tablet:mt-2 md:mt-2 xl:mt-auto  max-w-7xl tablet:grid tablet:items-center md:grid xl:flex  items-center xl:justify-between">
                 <div className="flex items-center tablet:justify-evenly md:justify-evenly xl:justify-center ">
                     <Link className="md:mr-10 xl:mr-auto" href="/PROGRMMING/typeScript/ecommerce/public">
                         <Image
