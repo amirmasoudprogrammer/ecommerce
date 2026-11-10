@@ -54,16 +54,16 @@ function Header() {
                     <nav className="w-[420px] h-[20px] md:ml-0 xl:ml-10">
                         <ul className="flex items-center justify-between">
                             <li><Link
-                                className="md:text-md xl:text-sm text-secondary hover:text-gray-700 hover:font-medium"
+                                className="md:text-md xl:text-sm text-gray-400 hover:text-gray-700 hover:font-medium"
                                 href="/PROGRMMING/typeScript/ecommerce/public">About us</Link></li>
                             <li><Link
-                                className="md:text-md xl:text-sm text-secondary hover:text-gray-700 hover:font-medium"
+                                className="md:text-md xl:text-sm text-gray-400 hover:text-gray-700 hover:font-medium"
                                 href="/PROGRMMING/typeScript/ecommerce/public">Blog</Link></li>
                             <li><Link
-                                className="md:text-md xl:text-sm text-secondary hover:text-gray-700 hover:font-medium"
+                                className="md:text-md xl:text-sm text-gray-400 hover:text-gray-700 hover:font-medium"
                                 href="/PROGRMMING/typeScript/ecommerce/public">Contact us</Link></li>
                             <li><Link
-                                className="md:text-md xl:text-sm text-secondary hover:text-gray-700 hover:font-medium"
+                                className="md:text-md xl:text-sm text-gray-400 hover:text-gray-700 hover:font-medium"
                                 href="/PROGRMMING/typeScript/ecommerce/public">Help & support</Link></li>
                         </ul>
                     </nav>
@@ -129,7 +129,7 @@ function Header() {
 
                     {/* Section Three */}
                     <div className="xl:flex-1 relative  w-[340px] z-10 tablet:ml-16 md:ml-16  xl:mr-0 h-full text-white flex items-center justify-end">
-                        <Link href="/ssss" className="flex items-center md:mr-8 xl:mr-10">
+                        <Link href="/auth/register" className="flex items-center md:mr-8 xl:mr-10">
                             <FaRegUser/>
                             <span className="md:text-[12px] xl:text-sm text-gray-300 ml-2">Sign in</span>
                         </Link>

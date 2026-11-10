@@ -159,7 +159,7 @@ function HeaderMobile() {
                         <div className="mt-10 flex flex-col gap-4">
 
                             <Link
-                                href="/login"
+                                href="/auth/register"
                                 onClick={() => setIsMenuOpen(false)}
                                 className="w-full rounded bg-gray-900 py-3 text-center text-sm text-white"
                             >

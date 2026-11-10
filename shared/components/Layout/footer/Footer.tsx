@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {footerLinks} from "@/static-data/footerData";
 
@@ -9,7 +8,7 @@ function Footer() {
         <footer className="w-full bg-[#d1e3eb] mt-5">
 
             {/* Newsletter */}
-            <div className="hidden relative md:flex justify-center">
+            <div className="hidden relative md:flex justify-center mb-5">
                 <div className="absolute -top-11 z-10 flex w-[90%] max-w-[360px] flex-col items-center rounded-md bg-[#779caf] px-6 py-4 text-center text-white shadow-sm">
                     <h2 className="text-xl font-semibold">
                         Luminae Store
@@ -20,7 +19,12 @@ function Footer() {
                     </p>
 
                     <form className="mt-3 flex w-full items-center rounded bg-white px-2 py-1">
+                        <label htmlFor="newsletter-email" className="sr-only">
+                            Email address
+                        </label>
                         <input
+                            id="newsletter-email"
+                            name="email"
                             type="email"
                             placeholder="Enter your email"
                             className="min-w-0 flex-1 text-xs text-gray-700 outline-none"
@@ -67,13 +71,18 @@ function Footer() {
             <div className="border-t border-white/70 bg-white">
                 <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center md:justify-between gap-4 px-6 py-4">
 
-                    <div className="flex items-center gap-4 text-sm font-bold text-gray-400">
+                    <div className="flex items-center gap-4 text-sm font-bold text-gray-600">
                         <span>VISA</span>
                         <span>●●</span>
                         <span className="text-xs">PayPal</span>
                     </div>
 
-                    <select defaultValue="English" className="hidden md:block bg-transparent text-xs text-gray-700 outline-none">
+                    <select
+                        id="footer-language"
+                        name="language"
+                        defaultValue="English"
+                        aria-label="Select language"
+                        className="hidden md:block bg-transparent text-xs text-gray-700 outline-none">
                         <option value="English">English</option>
                         <option value="Turkish">Turkish</option>
                         <option value="Chinese">Chinese</option>
@@ -95,9 +104,9 @@ function Footer() {
                     </p>
 
                     <div className="flex items-center gap-4 text-xs text-gray-700">
-                        <a href="@/shared/components/Layout/footer/Footer#" aria-label="Instagram">◎</a>
-                        <a href="@/shared/components/Layout/footer/Footer#" aria-label="Facebook">f</a>
-                        <a href="@/shared/components/Layout/footer/Footer#" aria-label="Telegram">➤</a>
+                        <a href="" aria-label="Instagram">◎</a>
+                        <a href="" aria-label="Facebook">f</a>
+                        <a href="" aria-label="Telegram">➤</a>
                     </div>
 
                 </div>
