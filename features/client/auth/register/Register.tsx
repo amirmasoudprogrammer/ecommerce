@@ -10,6 +10,7 @@ import type { z } from "zod";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 type RegisterInput = z.input<typeof registerSchema>;
 type RegisterOutput = z.output<typeof registerSchema>;
@@ -19,7 +20,7 @@ function RegisterForm() {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<RegisterInput, any, RegisterOutput>({
+    } = useForm<RegisterInput, unknown, RegisterOutput>({
         resolver: zodResolver(registerSchema),
     });
 
@@ -28,12 +29,12 @@ function RegisterForm() {
     return (
         <div className="container mt-5">
             <div className="flex justify-end xl:mr-14 mb-8">
-                <a
+                <Link
                     href="/"
                     className="text-xs text-gray-500 hover:text-black transition-colors"
                 >
                     ← Back to the website
-                </a>
+                </Link>
             </div>
             <div className="w-full max-w-[460px] mx-auto mb-10">
                 {/* Register Form */}
@@ -150,12 +151,9 @@ function RegisterForm() {
                             "
                             />
 
-                            <Label
-                                htmlFor="terms"
-                                className="text-[10px] leading-4 text-gray-600 cursor-pointer"
-                            >
+                            <Label htmlFor="terms" className="text-[10px] leading-4 text-gray-600 cursor-pointer">
                                 Terms and conditions agreement should start with
-                                an introduction that lets users know they're
+                                an introduction that lets users know they re
                                 reading a terms and conditions agreement.
                             </Label>
                         </div>
