@@ -56,20 +56,13 @@ jobs:
         run: npm ci
 
       - name: Install Vercel CLI
-        run: npm install --global vercel
+        run: npm install --global vercel@latest
 
-      # اتصال پروژه به Vercel
-      - name: Link Vercel Project
-        run: vercel link --yes --project="$VERCEL_PROJECT_ID" --token="$VERCEL_TOKEN"
-
-      # دریافت تنظیمات محیط Production
       - name: Pull Vercel Environment
         run: vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
 
-      # ساخت نسخه Production
       - name: Build for Vercel
         run: vercel build --prod --token="$VERCEL_TOKEN"
 
-      # انتشار روی Vercel
       - name: Deploy to Vercel
         run: vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN"
