@@ -1,10 +1,19 @@
-import { NextResponse } from "next/server";
+import {NextResponse} from "next/server";
 import connectDB from "@/lib/mongodb";
-import type { IRegisterData } from "@/types/RegisterData";
+import type {IRegisterData} from "@/types/RegisterData";
 import User from "@/models/User";
+import bcrypt from "bcryptjs";
+import {SignJWT} from "jose";
 
 export async function POST(request: Request) {
     try {
+        const secretKey = process.env.AUTH_SECRET;
+
+        if (!secretKey) {
+            throw new Error("AUTH_SECRET is not configured.");
+        }
+
+        const secret = new TextEncoder().encode(secretKey);
 
         let body: unknown;
 
@@ -12,8 +21,8 @@ export async function POST(request: Request) {
             body = await request.json();
         } catch {
             return NextResponse.json(
-                { message: "Invalid JSON body." },
-                { status: 400 }
+                {message: "Invalid JSON body."},
+                {status: 400}
             );
         }
 
@@ -27,12 +36,12 @@ export async function POST(request: Request) {
             !("password" in body)
         ) {
             return NextResponse.json(
-                { message: "Registration information is incomplete." },
-                { status: 400 }
+                {message: "Registration information is incomplete."},
+                {status: 400}
             );
         }
 
-        const { name, email, password } = body as IRegisterData;
+        const {name, email, password} = body as IRegisterData;
 
         // 4. Validate data types and values
         if (
@@ -41,8 +50,8 @@ export async function POST(request: Request) {
             typeof password !== "string"
         ) {
             return NextResponse.json(
-                { message: "Invalid data types." },
-                { status: 400 }
+                {message: "Invalid data types."},
+                {status: 400}
             );
         }
 
@@ -56,8 +65,8 @@ export async function POST(request: Request) {
             password.length > 128
         ) {
             return NextResponse.json(
-                { message: "Registration information is invalid." },
-                { status: 400 }
+                {message: "Registration information is invalid."},
+                {status: 400}
             );
         }
 
@@ -66,8 +75,8 @@ export async function POST(request: Request) {
 
         if (!emailRegex.test(normalizedEmail)) {
             return NextResponse.json(
-                { message: "Invalid email address." },
-                { status: 400 }
+                {message: "Invalid email address."},
+                {status: 400}
             );
         }
 
@@ -77,27 +86,70 @@ export async function POST(request: Request) {
         const existingUser = await User.findOne({
             email: normalizedEmail,
         });
-
         if (existingUser) {
             return NextResponse.json(
                 {
                     success: false,
                     message: "This email is already registered.",
                 },
-                { status: 409 }
+                {status: 409}
             );
         }
-        return NextResponse.json(
-            { message: "Validation successful." },
-            { status: 200 }
+        const hashedPassword = await bcrypt.hash(password, 12);
+
+        const newUser = await User.create({
+            name: normalizedName,
+            email: normalizedEmail,
+            password: hashedPassword,
+        });
+
+        const token = await new SignJWT({
+            email: newUser.email,
+        })
+            .setProtectedHeader({alg: "HS256"})
+            .setSubject(newUser._id.toString())
+            .setIssuedAt()
+            .setExpirationTime("7d")
+            .sign(secret);
+
+
+        const response = NextResponse.json(
+            {message: "Account created successfully."},
+            {status: 201}
         );
 
-    } catch (error) {
+        response.cookies.set("auth-token", token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "lax",
+            path: "/",
+            maxAge: 60 * 60 * 24 * 7,
+        });
+
+        return response;
+        
+
+    } catch (error: unknown) {
+        if (
+            typeof error === "object" &&
+            error !== null &&
+            "code" in error &&
+            error.code === 11000
+        ) {
+            return NextResponse.json(
+                {
+                    success: false,
+                    message: "This email is already registered.",
+                },
+                {status: 409}
+            );
+        }
+
         console.error("Registration API error:", error);
 
         return NextResponse.json(
-            { message: "Internal server error." },
-            { status: 500 }
+            {message: "Internal server error."},
+            {status: 500}
         );
     }
 }
