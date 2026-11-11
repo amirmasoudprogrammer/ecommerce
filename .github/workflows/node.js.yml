@@ -1,168 +1,68 @@
 
 name: Next.js CI/CD
 
-# --------------------------------------------------
-# Workflow Triggers
-# --------------------------------------------------
-
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
 
   pull_request:
-    branches:
-      - main
-
-  workflow_dispatch:
-
-# --------------------------------------------------
-# Concurrency
-# --------------------------------------------------
-
-# جلوگیری از انباشته‌شدن اجراهای غیرضروری
-# اجرای در حال انجام را به‌صورت خودکار لغو نمی‌کنیم.
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: false
-
-# --------------------------------------------------
-# Default Permissions
-# --------------------------------------------------
-
-permissions:
-  contents: read
-
-# ==================================================
-# JOB 1: CI - Quality Check & Build
-# ==================================================
+    branches: ["main"]
 
 jobs:
-
+  # مرحله اول: بررسی کد و Build
   build:
-    name: Code Quality & Production Build
-
     runs-on: ubuntu-latest
 
-    timeout-minutes: 30
-
     steps:
-
-      # دریافت سورس پروژه
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # تنظیم محیط Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: npm
 
-      # نصب دقیق وابستگی‌ها از package-lock.json
       - name: Install dependencies
         run: npm ci
 
-      # بررسی کیفیت کد
       - name: Run ESLint
         run: npm run lint
 
-      # بررسی TypeScript و ساخت نسخه Production
-      - name: Build Next.js application
+      - name: Build project
         run: npm run build
 
-# ==================================================
-# JOB 2: CD - Production Deployment
-# ==================================================
-
+  # مرحله دوم: انتشار در Vercel
   deploy:
-    name: Deploy to Vercel Production
-
-    needs:
-      - build
-
-    # فقط Push به شاخه main اجازه انتشار دارد.
-    if: >
-      github.event_name == 'push' &&
-      github.ref == 'refs/heads/main'
-
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
-    timeout-minutes: 30
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
     steps:
-
-      # دریافت سورس پروژه
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # تنظیم Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: npm
 
-      # نصب وابستگی‌ها
       - name: Install dependencies
         run: npm ci
 
-      # بررسی وجود اطلاعات اتصال Vercel
-      - name: Validate Vercel configuration
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-        shell: bash
-        run: |
-          set -euo pipefail
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
 
-          if [[ -z "$VERCEL_TOKEN" ]]; then
-            echo "::error::VERCEL_TOKEN is missing."
-            exit 1
-          fi
+      - name: Pull Vercel Environment
+        run: vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
 
-          if [[ -z "$VERCEL_ORG_ID" ]]; then
-            echo "::error::VERCEL_ORG_ID is missing."
-            exit 1
-          fi
-
-          if [[ -z "$VERCEL_PROJECT_ID" ]]; then
-            echo "::error::VERCEL_PROJECT_ID is missing."
-            exit 1
-          fi
-
-      # دریافت تنظیمات و متغیرهای Production از Vercel
-      - name: Pull Vercel Production Environment
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-        run: |
-          npx vercel pull \
-            --yes \
-            --environment=production \
-            --token="$VERCEL_TOKEN"
-
-      # ساخت نسخه Production با تنظیمات Vercel
       - name: Build for Vercel
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-        run: |
-          npx vercel build \
-            --prod \
-            --token="$VERCEL_TOKEN"
+        run: vercel build --prod --token="$VERCEL_TOKEN"
 
-      # انتشار نسخه ساخته‌شده در Vercel
       - name: Deploy to Vercel
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-        run: |
-          npx vercel deploy \
-            --prebuilt \
-            --prod \
-            --token="$VERCEL_TOKEN"
+        run: vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN"
