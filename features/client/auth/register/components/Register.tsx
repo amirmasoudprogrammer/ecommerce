@@ -91,7 +91,16 @@ function RegisterForm() {
                                 className="w-full h-10 rounded-sm bg-[#D1D1D1] hover:bg-green-600 text-white text-xs font-medium transition-all duration-300 ">
                             {isLoading ? "Creating Account..." : "SIGN UP"}
                         </Button>
-
+                        {/* Login Link */}
+                        <div className="text-center text-xs text-gray-500">
+                            Already have an account?{" "}
+                            <Link
+                                href="/auth/login"
+                                className="font-semibold text-gray-900 hover:text-green-600 transition-colors"
+                            >
+                                Sign in
+                            </Link>
+                        </div>
                         {/* Divider */}
                         <div className="flex items-center gap-3">
                             <span className="h-px flex-1 bg-gray-200"/>

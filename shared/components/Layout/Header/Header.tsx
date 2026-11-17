@@ -11,13 +11,19 @@ import {MdFavoriteBorder} from "react-icons/md";
 import {LuShoppingBag} from "react-icons/lu";
 import HeaderMegaMenu from "@/shared/components/Layout/Header/HeaderMegaMenu";
 import HeaderMobile from "@/shared/components/Layout/Header/HeaderMobile";
+import type {CurrentUser} from "@/lib/authtoken";
 
+type HeaderProps = {
+    user: CurrentUser | null;
+};
 
-function Header() {
+function Header({user}: HeaderProps) {
+
     return (
         <header className="relative w-full flex flex-col">
             {/*Header item one*/}
-            <div className="container w-full h-[100px]  mx-auto hidden tablet:mt-2 md:mt-2 xl:mt-auto  max-w-7xl tablet:grid tablet:items-center md:grid xl:flex  items-center xl:justify-between">
+            <div
+                className="container w-full h-[100px]  mx-auto hidden tablet:mt-2 md:mt-2 xl:mt-auto  max-w-7xl tablet:grid tablet:items-center md:grid xl:flex  items-center xl:justify-between">
                 <div className="flex items-center tablet:justify-evenly md:justify-evenly xl:justify-center ">
                     <Link className="md:mr-10 xl:mr-auto" href="/PROGRMMING/typeScript/ecommerce/public">
                         <Image
@@ -50,7 +56,8 @@ function Header() {
                         </div>
                     </div>
                 </div>
-                <div className="flex items-center  md:justify-evenly xl:justify-between md:w-full md:mt-5 xl:mt-auto xl:w-[700px]  m-auto">
+                <div
+                    className="flex items-center  md:justify-evenly xl:justify-between md:w-full md:mt-5 xl:mt-auto xl:w-[700px]  m-auto">
                     <nav className="w-[420px] h-[20px] md:ml-0 xl:ml-10">
                         <ul className="flex items-center justify-between">
                             <li><Link
@@ -84,10 +91,12 @@ function Header() {
 
             {/* Header Bottom */}
             <div className="hidden md:block w-full bg-gray-800">
-                <div className="container  mx-auto max-w-7xl flex items-center h-[78px] md:justify-center xl:justify-between ">
+                <div
+                    className="container  mx-auto max-w-7xl flex items-center h-[78px] md:justify-center xl:justify-between ">
 
                     {/* Section One */}
-                    <div className="xl:flex-1 tablet:w-[390px]   md:w-[400px] h-full text-white flex items-center justify-between xl:justify-start">
+                    <div
+                        className="xl:flex-1 tablet:w-[390px]   md:w-[400px] h-full text-white flex items-center justify-between xl:justify-start">
                         <div className="flex items-center tablet:ml-10 md:ml-10 md:mr-2 xl:ml-0 xl:justify-start">
                             <Image src="/image/header/icon/Vector.svg" alt="Categories" width={24} height={24}/>
                             <span className="font-bold tablet:text-sm md:text-sm lg:text-xl ml-2"> Categories</span>
@@ -128,11 +137,11 @@ function Header() {
                     <BorderItems/>
 
                     {/* Section Three */}
-                    <div className="xl:flex-1 relative  w-[340px] z-10 tablet:ml-16 md:ml-16  xl:mr-0 h-full text-white flex items-center justify-end">
-                        <Link href="/auth/register" className="flex items-center md:mr-8 xl:mr-10">
-                            <FaRegUser/>
-                            <span className="md:text-[12px] xl:text-sm text-gray-300 ml-2">Sign in</span>
-                        </Link>
+                    <div
+                        className="xl:flex-1 relative  w-[340px] z-10 tablet:ml-16 md:ml-16  xl:mr-0 h-full text-white flex items-center justify-end">
+                        {user ? (<Link href="/dashboard" className="flex items-center md:mr-8 xl:mr-10"><FaRegUser/><span className="md:text-[12px] xl:text-sm text-gray-300 ml-2">profile</span></Link>) : (
+                            <Link href="/auth/register" className="flex items-center md:mr-8 xl:mr-10"><FaRegUser/><span className="md:text-[12px] xl:text-sm text-gray-300 ml-2">Sign in</span></Link>)}
+
                         <Link href="/ssss" className="flex items-center mr-10">
                             <MdFavoriteBorder/>
 

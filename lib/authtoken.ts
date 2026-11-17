@@ -1,7 +1,12 @@
-import { cookies } from "next/headers";
-import { jwtVerify } from "jose";
+import {cookies} from "next/headers";
+import {jwtVerify} from "jose";
 
-export async function getCurrentUser() {
+export type CurrentUser = {
+    id: string;
+    email: string;
+};
+
+export async function getCurrentUser(): Promise<CurrentUser | null> {
     // 1. دریافت Cookie های مرورگر
     const cookieStore = await cookies();
 
@@ -19,10 +24,17 @@ export async function getCurrentUser() {
     try {
         const secret = new TextEncoder().encode(secretKey);
 
-        const { payload } = await jwtVerify(token, secret, {
+        const {payload} = await jwtVerify(token, secret, {
             algorithms: ["HS256"],
         });
 
+
+        if (
+            typeof payload.sub !== "string" ||
+            typeof payload.email !== "string"
+        ) {
+            return null;
+        }
         // 5. برگرداندن اطلاعات کاربر
         return {
             id: payload.sub,

@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 
 async function RegisterContent() {
     const user = await getCurrentUser();
+    console.log(user)
 
     if (user) {
         redirect("/");
