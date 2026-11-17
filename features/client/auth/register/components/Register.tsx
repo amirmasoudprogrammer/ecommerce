@@ -93,7 +93,7 @@ function RegisterForm() {
                         </Button>
                         {/* Login Link */}
                         <div className="text-center text-xs text-gray-500">
-                            Already have an account?{" "}
+                            Already have an account ?
                             <Link
                                 href="/auth/login"
                                 className="font-semibold text-gray-900 hover:text-green-600 transition-colors"

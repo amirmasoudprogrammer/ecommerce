@@ -105,7 +105,7 @@ function Login() {
 
                         {/* Register Link */}
                         <div className="text-center text-xs text-gray-500">
-                            Don't have an account?{" "}
+                            Dont have an account?
                             <Link
                                 href="/auth/register"
                                 className="font-semibold text-gray-900 hover:text-green-600 transition-colors"
