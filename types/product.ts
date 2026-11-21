@@ -1,0 +1,30 @@
+export interface Product {
+    id: number;
+    title: string;
+    description: string;
+    category: string;
+    price: number;
+    discountPercentage: number;
+    rating: number;
+    stock: number;
+    thumbnail: string;
+    images: string[];
+}
+
+export type Top100Product = Pick<
+    Product,
+    | "id"
+    | "title"
+    | "category"
+    | "price"
+    | "discountPercentage"
+    | "rating"
+    | "images"
+    >;
+
+export interface ProductsResponse {
+    products: Product[];
+    total: number;
+    skip: number;
+    limit: number;
+}

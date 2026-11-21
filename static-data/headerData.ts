@@ -38,7 +38,7 @@ export const headerMenu: HeaderMenu[] = [
             },
             {
                 id: 2,
-                title: "Home Textile",
+                title: "HomePage Textile",
                 subTitle: [
                     "Bedding",
                     "Pillows",
@@ -209,7 +209,7 @@ export const headerMenu: HeaderMenu[] = [
     },
     {
         id: 5,
-        title: "Home & Furniture",
+        title: "HomePage & Furniture",
     },
     {
         id: 6,
@@ -247,7 +247,7 @@ export const headerMenu: HeaderMenu[] = [
             },
             {
                 id: 3,
-                title: "TV & Home ",
+                title: "TV & HomePage ",
                 subTitle: [
                     "LED TVs",
                     "Smart TVs",
@@ -317,7 +317,7 @@ export const menuItems: headerMobile[] = [
     {title: "Woman", href: "/"},
     {title: "Male", href: "/"},
     {title: "Mother & Child", href: "/"},
-    {title: "Home & Furniture", href: "/"},
+    {title: "HomePage & Furniture", href: "/"},
     {title: "Sports & Outdoors", href: "/"},
     {title: "Cosmetics", href: "/"},
     {title: "Supermarket", href: "/"},

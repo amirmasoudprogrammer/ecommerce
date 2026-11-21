@@ -1,4 +1,4 @@
-import api from "@/lib/axios";
+import {api} from "@/lib/axios";
 
 import type { RegisterOutput  } from "@/features/client/auth/register/schemas/register.schema";
 
@@ -12,7 +12,7 @@ export async function registerService(
 ): Promise<RegisterResponse> {
 
     const response = await api.post<RegisterResponse>(
-        "/api/auth/register",
+        "/auth/register",
         data
     );
 
