@@ -1,4 +1,4 @@
-import {UseQueryResult} from "@tanstack/react-query/src";
+import type { UseQueryResult } from "@tanstack/react-query";
 import {Product, ProductsResponse} from "@/types/product";
 
 export interface ErrorsProps {
