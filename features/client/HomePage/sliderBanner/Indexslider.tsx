@@ -1,4 +1,3 @@
-"use client";
 
 import SliderView from "@/features/client/HomePage/sliderBanner/components/SliderView";
 

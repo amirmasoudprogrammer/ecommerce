@@ -13,6 +13,7 @@ import {useHomeProducts} from "@/features/client/HomePage/Products/hooks/useProd
 import ProductCard from "@/features/client/HomePage/Products/components/ProductCard";
 import Pending from "@/features/client/HomePage/Products/Module/Pending";
 import Errors from "@/features/client/HomePage/Products/Module/Errors";
+import Link from "next/link";
 
 export default function ProductsClient() {
     const swiperRef = useRef<SwiperInstance | null>(null);
@@ -59,13 +60,13 @@ export default function ProductsClient() {
 
                     </button>
 
-                    <a
+                    <Link
                         href="/products"
                         className="ml-2 text-xs flex items-center justify-between text-gray-500 transition hover:text-black"
                     >
                         <span className="mr-1">View all</span> <FaAngleRight/>
 
-                    </a>
+                    </Link>
                 </div>
             </div>
 

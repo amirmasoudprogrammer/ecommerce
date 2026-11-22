@@ -22,10 +22,6 @@ export default function SliderView() {
 
     return (
         <section className="relative w-full mx-auto  overflow-hidden mb-10">
-            <div className="mx-auto w-full tablet:max-w-[991px] laptop:max-w-[1500px]">
-
-
-            </div>
             <Swiper
                 modules={[Autoplay, EffectFade]}
                 effect="fade"

@@ -1,6 +1,6 @@
 
 import { useQuery } from "@tanstack/react-query";
-import { productsQueryOptions } from "./productsQueryOptions";
+import { productsQueryOptions } from "../queries/productsQueryOptions";
 
 export function useProducts(limit: number = 10) {
     return useQuery(productsQueryOptions(limit));

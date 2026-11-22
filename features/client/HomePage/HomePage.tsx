@@ -1,7 +1,7 @@
 
 import Indexslider from "@/features/client/HomePage/sliderBanner/Indexslider";
 import IndexBanners from "@/features/client/HomePage/slideBannerMobile/IndexBanners";
-import Products from "@/features/client/HomePage/Products/Products";
+import Products from "@/features/client/HomePage/Products/components/Products";
 import Trending from "@/features/client/HomePage/TrendingM/Trending";
 import Top from "@/features/client/HomePage/Top100/Top";
 import Mag from "@/features/client/HomePage/MagSafe/Mag";
