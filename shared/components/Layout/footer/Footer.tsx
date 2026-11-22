@@ -1,5 +1,6 @@
 import React from 'react';
 import {footerLinks} from "@/static-data/footerData";
+import Link from "next/link";
 
 
 
@@ -53,12 +54,12 @@ function Footer() {
                         <ul className="space-y-3">
                             {item.links.map((link) => (
                                 <li key={link}>
-                                    <a
+                                    <Link
                                         href="/"
                                         className="text-[11px] text-gray-600 transition-colors hover:text-black"
                                     >
                                         {link}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
