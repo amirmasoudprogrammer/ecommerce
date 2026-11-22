@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import {getProductsByCategory} from "@/services/client/HomePage/products/productsSlid2.service";
+import {getProductsByCategory} from "@/features/client/HomePage/Top100/services/productsSlid2.service";
 
 export function useProductsByCategory(
     category: string,

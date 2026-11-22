@@ -67,8 +67,8 @@ function MegaMenu({menuItems, idH}: MegaMenuProps) {
                         idH === 1
                             ? "/image/header/MegaMenuImage/image-363.png"
                             : idH === 2
-                                ? "/image/header/MegaMenuImage/Thoughtful Portrait in Blue Florals.png"
-                                : "/image/header/MegaMenuImage/Minimalist Laptop Workspace with Plant and Mug.png"
+                                ? "/image/header/MegaMenuImage/Thoughtful Portrait in Blue Florals.webp"
+                                : "/image/header/MegaMenuImage/Minimalist Laptop Workspace with Plant and Mug.webp"
                     }
                     alt="Mega menu banner"
                     width={278}

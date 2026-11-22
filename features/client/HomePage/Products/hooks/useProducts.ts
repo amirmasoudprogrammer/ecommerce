@@ -1,4 +1,10 @@
-import {useProducts} from "@/hooks/homePage/Products/useProducts";
+
+import { useQuery } from "@tanstack/react-query";
+import { productsQueryOptions } from "./productsQueryOptions";
+
+export function useProducts(limit: number = 10) {
+    return useQuery(productsQueryOptions(limit));
+}
 
 export function useHomeProducts() {
     const {
