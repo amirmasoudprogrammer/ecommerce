@@ -42,11 +42,20 @@ export default function SliderView() {
                 onSlideChange={handleSlideChange}
                 className="w-full"
             >
-                {slides.map((slide) => (
+                {slides.map((slide, index) => (
                     <SwiperSlide key={slide.id}>
                         <div>
                             <div className="w-full m-auto flex items-center justify-center mt-5">
-                                <Image src={slide.image} sizes="(min-width: 1205px) 1500px, 991px" width={1500} height={1500} className="w-full h-[460px]" alt="image"/>
+                                <Image
+                                    src={slide.image}
+                                    sizes="(min-width: 1205px) 1500px, 991px"
+                                    width={1500}
+                                    height={460}
+                                    className="w-full h-[460px]"
+                                    alt="image"
+                                    fetchPriority={index === 0 ? "high" : "auto"}
+                                    loading={index === 0 ? "eager" : "lazy"}
+                                />
                             </div>
                         </div>
                     </SwiperSlide>

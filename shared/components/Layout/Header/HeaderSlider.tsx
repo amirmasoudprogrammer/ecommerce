@@ -15,7 +15,7 @@ function HeaderSlider() {
     }, []);
     return (
         <div className="hidden min-[1211px]:flex flex-1 h-full text-white  items-center pb-2 justify-center">
-            <Image className="  mr-2" src={headerData[currentIndex].image}
+            <Image className="mr-2" src={headerData[currentIndex].image}
                    alt={headerData[currentIndex].title} width={53} height={52}/>
             <div className="flex flex-col h-[62px] mt-5">
                 <h3 className="text-[12px] font-normal">

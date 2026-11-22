@@ -54,7 +54,7 @@ function Footer() {
                             {item.links.map((link) => (
                                 <li key={link}>
                                     <a
-                                        href="@/shared/components/Layout/footer/Footer#"
+                                        href="/"
                                         className="text-[11px] text-gray-600 transition-colors hover:text-black"
                                     >
                                         {link}

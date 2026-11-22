@@ -13,7 +13,7 @@ function HeaderMegaMenu() {
             <ul className="hidden md:flex  w-full justify-evenly ml-2">
                 {headerMenu.map((menu, key) => (
                     <li className="relative pr-[2px]" key={key} onMouseEnter={() => setActiveMenu(menu.id)}><Link
-                        href="@/shared/components/Layout/Header/HeaderMegaMenu"
+                        href="/"
                         className="text-sm text-gray-500 hover:text-orange-500 hover:font-medium">{menu.title}</Link>
                         {activeMenu === menu.id && menu.moreTitle && (
                             <div

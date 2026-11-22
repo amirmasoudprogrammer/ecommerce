@@ -1,5 +1,6 @@
 
 import type { Product } from "@/types/product";
+import Image from "next/image";
 
 interface ProductCardProps {
     product: Product;
@@ -22,9 +23,12 @@ export default function ProductCard({ product }: ProductCardProps) {
           -{Math.round(product.discountPercentage)}%
         </span>
 
-                <img
+                <Image
                     src={product.thumbnail}
+                    width={438}
+                    height={280}
                     alt={product.title}
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     className="h-full w-full object-contain p-3"
                 />
             </div>

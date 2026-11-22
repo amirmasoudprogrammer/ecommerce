@@ -15,6 +15,7 @@ function IndexBanners({ image1, image2 }: IndexBannersProps) {
                     src={image1}
                     width={438}
                     height={280}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 620px, 438px"
                     alt="image"
                 />
             </Link>
@@ -25,6 +26,7 @@ function IndexBanners({ image1, image2 }: IndexBannersProps) {
                     src={image2}
                     width={438}
                     height={280}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 620px, 438px"
                     alt="image"
                 />
             </Link>

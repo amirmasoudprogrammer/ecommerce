@@ -16,8 +16,8 @@ function HomePage() {
 
             <div className="block tablet:hidden">
                 <IndexBanners
-                    image1="/image/homePage/bannerMobile/Never-Ending Summer Fashion.png"
-                    image2="/image/homePage/bannerMobile/Best Sellers_ Poolside Glam.png"
+                    image1="/image/homePage/bannerMobile/Never-Ending Summer Fashion.webp"
+                    image2="/image/homePage/bannerMobile/Best Sellers_ Poolside Glam.webp"
                 />
             </div>
 
@@ -36,8 +36,8 @@ function HomePage() {
             <ScrollReveal>
                 <div className="hidden tablet:block">
                     <IndexBanners
-                        image1="/image/homePage/bannerMobile/Never-Ending Summer Fashion.png"
-                        image2="/image/homePage/bannerMobile/Tea.png"
+                        image1="/image/homePage/bannerMobile/Never-Ending Summer Fashion.webp"
+                        image2="/image/homePage/bannerMobile/Tea.webp"
                     />
                 </div>
             </ScrollReveal>
@@ -49,8 +49,8 @@ function HomePage() {
             <ScrollReveal>
                 <div className="hidden tablet:block">
                     <IndexBanners
-                        image1="/image/homePage/bannerMobile/The Pinky Barbie Fashion Edition.png"
-                        image2="/image/homePage/bannerMobile/Best Sellers_ Poolside Glam.png"
+                        image1="/image/homePage/bannerMobile/The Pinky Barbie Fashion Edition.webp"
+                        image2="/image/homePage/bannerMobile/Best Sellers_ Poolside Glam.webp"
                     />
                 </div>
             </ScrollReveal>

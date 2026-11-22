@@ -11,7 +11,7 @@ export default function NotFound() {
                 {/* Illustration */}
                 <div className="flex w-full justify-center">
                     <Image
-                        src="/image/notFound/Confused Character Behind 404 Error.png"
+                        src="/image/notFound/Confused Character Behind 404 Error.webp"
                         alt="404 Page Not Found"
                         width={650}
                         height={500}

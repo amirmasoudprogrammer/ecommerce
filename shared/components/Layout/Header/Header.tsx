@@ -25,7 +25,7 @@ function Header({user}: HeaderProps) {
             <div
                 className="container w-full h-[100px]  mx-auto hidden tablet:mt-2 md:mt-2 xl:mt-auto  max-w-7xl tablet:grid tablet:items-center md:grid xl:flex  items-center xl:justify-between">
                 <div className="flex items-center tablet:justify-evenly md:justify-evenly xl:justify-center ">
-                    <Link className="md:mr-10 xl:mr-auto" href="/PROGRMMING/typeScript/ecommerce/public">
+                    <Link className="md:mr-10 xl:mr-auto" href="/">
                         <Image
                             src="/image/header/logo/Logo.svg"
                             alt="logo"
@@ -62,25 +62,25 @@ function Header({user}: HeaderProps) {
                         <ul className="flex items-center justify-between">
                             <li><Link
                                 className="md:text-md xl:text-sm text-gray-400 hover:text-gray-700 hover:font-medium"
-                                href="/PROGRMMING/typeScript/ecommerce/public">About us</Link></li>
+                                href="/">About us</Link></li>
                             <li><Link
                                 className="md:text-md xl:text-sm text-gray-400 hover:text-gray-700 hover:font-medium"
-                                href="/PROGRMMING/typeScript/ecommerce/public">Blog</Link></li>
+                                href="/">Blog</Link></li>
                             <li><Link
                                 className="md:text-md xl:text-sm text-gray-400 hover:text-gray-700 hover:font-medium"
-                                href="/PROGRMMING/typeScript/ecommerce/public">Contact us</Link></li>
+                                href="/">Contact us</Link></li>
                             <li><Link
                                 className="md:text-md xl:text-sm text-gray-400 hover:text-gray-700 hover:font-medium"
-                                href="/PROGRMMING/typeScript/ecommerce/public">Help & support</Link></li>
+                                href="/">Help & support</Link></li>
                         </ul>
                     </nav>
                     <div className="flex text-gray-400 items-center justify-end w-[127.5px] h-[24px]">
-                        <Link href="/PROGRMMING/typeScript/ecommerce/public"
+                        <Link href="/"
                               className="md:text-2xl xl:text-lg font-bold mr-2 hover:font-medium hover:text-gray-700">
                             <FiInstagram/></Link>
-                        <Link href="/PROGRMMING/typeScript/ecommerce/public"
+                        <Link href="/"
                               className="md:text-2xl xl:text-lg font-bold mr-2 hover:font-medium hover:text-gray-700"><BiLogoFacebook/></Link>
-                        <Link href="/PROGRMMING/typeScript/ecommerce/public"
+                        <Link href="/"
                               className="md:text-2xl xl:text-lg font-bold hover:font-medium hover:text-gray-700"><FaTelegramPlane/></Link>
 
                     </div>

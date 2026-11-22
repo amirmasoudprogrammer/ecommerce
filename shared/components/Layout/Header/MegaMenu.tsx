@@ -28,7 +28,7 @@ function MegaMenu({menuItems, idH}: MegaMenuProps) {
                             <ul className="flex flex-col gap-2">
                                 {item.subTitle.map((subTitle, index) => (
                                     <li key={index} className="text-[12px] text-gray-600">
-                                        <Link href="@/shared/components/Layout/Header/MegaMenu">{subTitle}</Link>
+                                        <Link href="/">{subTitle}</Link>
                                     </li>
                                 ))}
                             </ul>
