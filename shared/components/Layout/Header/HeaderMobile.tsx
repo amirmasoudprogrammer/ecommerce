@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {LuShoppingBag} from "react-icons/lu";
 import {FiChevronDown, FiSearch, FiX} from "react-icons/fi";
-import {menuItems} from "@/static-data/headerData";
+import {menuItems} from "@/static-data/Header/headerData";
 
 function HeaderMobile() {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);

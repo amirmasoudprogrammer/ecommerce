@@ -1,10 +1,6 @@
-
-import type { Product } from "@/types/product";
 import Image from "next/image";
+import type {ProductCardProps} from "@/features/client/HomePage/Products/types/products";
 
-interface ProductCardProps {
-    product: Product;
-}
 
 export default function ProductCard({ product }: ProductCardProps) {
     const discountedPrice = product.price * (1 - product.discountPercentage / 100);

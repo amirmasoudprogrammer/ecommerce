@@ -1,6 +1,6 @@
 "use client"
 import React, {useEffect, useState} from 'react';
-import {headerData} from "@/static-data/headerData";
+import {headerData} from "@/static-data/Header/headerData";
 import Image from "next/image";
 
 function HeaderSlider() {

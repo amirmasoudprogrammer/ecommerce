@@ -1,15 +1,7 @@
+import type {SliderPaginationProps} from "@/features/client/HomePage/sliderBanner/types/slider.types";
 
-interface SliderPaginationProps {
-    total: number;
-    activeIndex: number;
-    onChange: (index: number) => void;
-}
 
-export default function SliderPagination({
-                                             total,
-                                             activeIndex,
-                                             onChange,
-                                         }: SliderPaginationProps) {
+export default function SliderPagination({total, activeIndex, onChange,}: SliderPaginationProps) {
     return (
         <div className="absolute bottom-5 left-1/2 z-20 flex -translate-x-1/2 items-center justify-center gap-3">
             {Array.from({ length: total }, (_, index) => {

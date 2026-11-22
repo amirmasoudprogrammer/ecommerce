@@ -5,3 +5,6 @@ export interface TrendingItem {
     image: string;
     href: string;
 }
+export interface CarditemsProps {
+    item: TrendingItem;
+}

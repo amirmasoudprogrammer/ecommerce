@@ -1,18 +1,8 @@
+import type {ErrorsProps} from "@/features/client/HomePage/Top100/types/Top.types";
 
-import type { UseQueryResult } from "@tanstack/react-query";
-import type { ProductsResponse } from "@/types/product";
 
-interface ErrorsProps {
-    error: UseQueryResult<ProductsResponse>["error"];
-    refetch: UseQueryResult<ProductsResponse>["refetch"];
-    isFetching: boolean;
-}
 
-export default function Errors({
-                                   error,
-                                   refetch,
-                                   isFetching,
-                               }: ErrorsProps) {
+export default function Errors({error, refetch, isFetching,}: ErrorsProps) {
     return (
         <section className="mx-auto max-w-[1440px] px-4 py-10">
             <p className="text-sm text-red-500">

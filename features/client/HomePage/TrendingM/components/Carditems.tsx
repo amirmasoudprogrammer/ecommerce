@@ -1,9 +1,7 @@
 import Image from "next/image";
-import type {TrendingItem} from "@/features/client/HomePage/TrendingM/types/trending";
+import type {CarditemsProps} from "@/features/client/HomePage/TrendingM/types/trending";
 
-interface CarditemsProps {
-    item: TrendingItem;
-}
+
 
 export default function Carditems({ item }: CarditemsProps) {
     return (

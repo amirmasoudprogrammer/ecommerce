@@ -9,7 +9,7 @@ import "swiper/css/effect-fade";
 
 import { useSlider } from "../hooks/useSlider";
 import SliderPagination from "./SliderPagination";
-import {slides} from "@/static-data/HomeBanSlider";
+import {slides} from "@/static-data/homepage/HomeBanSlider";
 import Image from "next/image";
 
 export default function SliderView() {

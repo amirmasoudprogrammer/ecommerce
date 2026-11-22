@@ -1,6 +1,6 @@
 "use client"
 import React, {useState} from 'react';
-import {headerMenu} from "@/static-data/headerData";
+import {headerMenu} from "@/static-data/Header/headerData";
 import Link from "next/link";
 import MegaMenu from "@/shared/components/Layout/Header/MegaMenu";
 

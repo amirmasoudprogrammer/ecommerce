@@ -1,10 +1,7 @@
-
 import Image from "next/image";
-import type { Top100Product } from "@/types/product";
+import type {ProductCardProps} from "@/features/client/HomePage/Top100/types/Top.types";
 
-interface ProductCardProps {
-    item: Top100Product;
-}
+
 
 
 export default function ProductCard({ item }: ProductCardProps) {

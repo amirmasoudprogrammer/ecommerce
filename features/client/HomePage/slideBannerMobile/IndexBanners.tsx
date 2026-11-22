@@ -1,10 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
+import {IndexBannersProps} from "@/features/client/HomePage/slideBannerMobile/types/Index.types";
 
-interface IndexBannersProps {
-    image1: string;
-    image2: string;
-}
+
 
 function IndexBanners({ image1, image2 }: IndexBannersProps) {
     return (

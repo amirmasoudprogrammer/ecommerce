@@ -1,5 +1,5 @@
 import React from 'react';
-import {footerLinks} from "@/static-data/footerData";
+import {footerLinks} from "@/static-data/footer/footerData";
 import Link from "next/link";
 
 
