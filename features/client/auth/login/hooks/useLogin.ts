@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 import type { LoginOutput } from "@/features/client/auth/login/schemas/login.schema";
-import { loginService } from "@/services/client/auth/login/login.service";
+import { loginService } from "@/features/client/auth/login/services/login.service";
 
 export function useLogin() {
     const [isLoading, setIsLoading] = useState<boolean>(false);

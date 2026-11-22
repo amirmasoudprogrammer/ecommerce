@@ -7,7 +7,7 @@ import type { SubmitHandler } from "react-hook-form";
 import type { z } from "zod";
 import { useRouter } from "next/navigation";
 import { registerSchema } from "../schemas/register.schema";
-import { registerService } from "@/services/client/auth/register/register.service";
+import { registerService } from "@/features/client/auth/register/services/register.service";
 import {toast} from "sonner";
 
 type RegisterOutput = z.output<typeof registerSchema>;
