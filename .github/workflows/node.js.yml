@@ -3,13 +3,13 @@ name: Next.js CI/CD
 
 on:
   push:
-    branches: 
+    branches:
       - main
       - 'feature/**'
 
   pull_request:
-    branches: 
-     - main
+    branches:
+      - main
 
 jobs:
   # مرحله اول: بررسی کد و Build
@@ -35,14 +35,23 @@ jobs:
       - name: Build project
         run: npm run build
 
+      # ذخیره خروجی Build به عنوان Artifact
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nextjs-build
+          path: .next/
+          if-no-files-found: error
+          retention-days: 7
+
   # مرحله دوم: انتشار در Vercel
   deploy:
     needs: build
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    
+
     environment: production
-          
+
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
