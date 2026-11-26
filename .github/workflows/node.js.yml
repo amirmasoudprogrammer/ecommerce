@@ -3,16 +3,16 @@ name: Next.js CI/CD
 
 on:
   push:
-    branches: 
+    branches:
       - main
       - 'feature/**'
 
   pull_request:
-    branches: 
-     - main
+    branches:
+      - main
 
 jobs:
-  # مرحله اول: بررسی کد و Build
+  # مرحله اول: بررسی کد، Build و آپلود Artifact
   build:
     runs-on: ubuntu-latest
 
@@ -35,14 +35,71 @@ jobs:
       - name: Build project
         run: npm run build
 
-  # مرحله دوم: انتشار در Vercel
+      # بررسی خروجی Build
+      - name: Inspect Build Output
+        run: |
+          echo "Current directory:"
+          pwd
+
+          echo "Next.js BUILD_ID:"
+          ls -la .next/BUILD_ID
+
+          echo "Next.js build files:"
+          ls -la .next/
+
+          echo "Server output:"
+          ls -la .next/server/
+
+          echo "Static output:"
+          ls -la .next/static/
+
+      # ذخیره خروجی Build به عنوان Artifact
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nextjs-build
+          path: |
+            .next/BUILD_ID
+            .next/build-manifest.json
+            .next/server/**
+            .next/static/**
+          if-no-files-found: error
+          retention-days: 7
+
+  # مرحله دوم: دریافت و بررسی Artifact
+  verify-artifact:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: nextjs-build
+          path: downloaded-build
+
+      - name: Inspect Downloaded Artifact
+        run: |
+          echo "Current directory:"
+          pwd
+
+          echo "Downloaded Artifact files:"
+          ls -la downloaded-build
+
+          echo "Server files:"
+          ls -la downloaded-build/server
+
+          echo "Static files:"
+          ls -la downloaded-build/static
+
+  # مرحله سوم: انتشار در Vercel
   deploy:
     needs: build
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    
+
     environment: production
-          
+
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
