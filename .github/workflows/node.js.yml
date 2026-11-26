@@ -12,7 +12,7 @@ on:
       - main
 
 jobs:
-  # مرحله اول: بررسی کد و Build
+  # مرحله اول: بررسی کد، Build و آپلود Artifact
   build:
     runs-on: ubuntu-latest
 
@@ -35,7 +35,7 @@ jobs:
       - name: Build project
         run: npm run build
 
-      # بررسی مسیر خروجی Build
+      # بررسی خروجی Build
       - name: Inspect Build Output
         run: |
           echo "Current directory:"
@@ -53,7 +53,7 @@ jobs:
           echo "Static output:"
           ls -la .next/static/
 
-      # ذخیره فایل‌های خروجی Build به عنوان Artifact
+      # ذخیره خروجی Build به عنوان Artifact
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -66,7 +66,33 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
-  # مرحله دوم: انتشار در Vercel
+  # مرحله دوم: دریافت و بررسی Artifact
+  verify-artifact:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: nextjs-build
+          path: downloaded-build
+
+      - name: Inspect Downloaded Artifact
+        run: |
+          echo "Current directory:"
+          pwd
+
+          echo "Downloaded Artifact files:"
+          ls -la downloaded-build
+
+          echo "Server files:"
+          ls -la downloaded-build/server
+
+          echo "Static files:"
+          ls -la downloaded-build/static
+
+  # مرحله سوم: انتشار در Vercel
   deploy:
     needs: build
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
